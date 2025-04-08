@@ -11,7 +11,6 @@ import {
   RecordingPulseButton
 } from './components';
 import { motion, AnimatePresence } from 'framer-motion';
-import yangmi from './assets/yangmi.webp';
 import { ChatTextInput } from './components/ChatTextInput';
 import { InputModeSwitch, InputMode } from './components/InputModeSwitch';
 
@@ -40,9 +39,9 @@ type MessageState = 'thinking' | 'reply' | 'listening' | null;
 
 
 export default function VoiceCall({
-  callerName = 'Yang Mi',
-  callerAvatar = yangmi,
-  description = 'Chinese actress, your virtual AI girlfriend',
+  callerName = 'default',
+  callerAvatar = '',
+  description = 'ai virtual girlfriend',
   debug = false,
   apiUrl = {
     callStatus: '/api/chat/call-status',
@@ -455,7 +454,7 @@ export default function VoiceCall({
 
 
       await service.answerCall({
-        voice_role: 'yangmi',
+        voice_role: 'default',
         speed: 1.0,
         volume: 1.0,
         format: 'mp3'
